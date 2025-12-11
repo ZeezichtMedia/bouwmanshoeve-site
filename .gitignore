@@ -1,0 +1,30 @@
+# Build output
+dist/
+server/
+
+# Generated types
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.production
+
+# MacOS-specific files
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Netlify/Vercel
+.netlify/
+.vercel/

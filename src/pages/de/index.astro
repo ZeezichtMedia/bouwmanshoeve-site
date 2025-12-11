@@ -1,0 +1,122 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/home/Hero.astro";
+import {
+    heroImage,
+    roomImages,
+    breakfastImages,
+    surroundingImages,
+} from "../../data/images";
+---
+
+<Layout title="Home" lang="de">
+    <Hero
+        title="Willkommen auf der Bouwmanshoeve"
+        subtitle="Entdecken Sie Ruhe, Komfort und die Schönheit von Burgh-Haamstede."
+        cta="Verfügbarkeit prüfen"
+        image={heroImage}
+    />
+
+    <!-- Intro Section -->
+    <section class="py-24 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <span
+                class="text-accent font-bold tracking-widest uppercase text-sm mb-4 block"
+                >Über Uns</span
+            >
+            <h2
+                class="text-4xl md:text-5xl font-serif font-bold text-primary mb-8 leading-tight"
+            >
+                Ein Ort zum Heimkommen
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed mb-12">
+                Am Rande der Dünen und nur einen Steinwurf vom Strand entfernt,
+                bietet das B&B Bouwmanshoeve die perfekte Flucht aus dem Alltag.
+                Genießen Sie unsere Gastfreundschaft, die komfortablen Zimmer
+                und das reichhaltige Frühstück in unserem stimmungsvollen
+                Bauernhaus.
+            </p>
+            <div class="w-24 h-1 bg-accent mx-auto rounded-full"></div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 px-4 bg-stone-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <a
+                href="/de/accommodatie"
+                class="block group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/5] cursor-pointer"
+            >
+                <img
+                    src={roomImages[0]}
+                    alt="Komfortable Zimmer"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8"
+                >
+                    <h3 class="text-2xl font-serif font-bold text-white mb-2">
+                        Stilvolle Zimmer
+                    </h3>
+                    <p
+                        class="text-gray-200 transform translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+                    >
+                        Ausgestattet mit allem modernen Komfort für eine
+                        wunderbare Nachtruhe.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a
+                href="/de/accommodatie#ontbijt"
+                class="block group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/5] cursor-pointer md:-mt-12"
+            >
+                <img
+                    src={breakfastImages[0]}
+                    alt="Leckeres Frühstück"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8"
+                >
+                    <h3 class="text-2xl font-serif font-bold text-white mb-2">
+                        Frisches Frühstück
+                    </h3>
+                    <p
+                        class="text-gray-200 transform translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+                    >
+                        Jeden Morgen ein reichhaltiges kontinentales Frühstück
+                        mit lokalen Produkten.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a
+                href="/de/omgeving"
+                class="block group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/5] cursor-pointer"
+            >
+                <img
+                    src={surroundingImages[0]}
+                    alt="Wunderschöne Umgebung"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8"
+                >
+                    <h3 class="text-2xl font-serif font-bold text-white mb-2">
+                        Natur & Umgebung
+                    </h3>
+                    <p
+                        class="text-gray-200 transform translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+                    >
+                        Wandern Sie direkt in die Natur oder radeln Sie zum
+                        historischen Slot Haamstede.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </section>
+</Layout>

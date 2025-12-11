@@ -1,0 +1,281 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const room1Features = [
+    "Private entrance",
+    "Parquet floor",
+    "Smoke detectors",
+    "Accessible by stairs",
+    "Trash can",
+    "Key access",
+    "Private Bathroom",
+    "Towels",
+    "Private Toilet",
+    "Toilet paper",
+    "Bed linen",
+    "Socket near bed",
+];
+
+const room2Features = [
+    "Private entrance",
+    "Parquet floor",
+    "Smoke detectors",
+    "Accessible by stairs",
+    "Trash can",
+    "Key access",
+    "Private Bathroom",
+    "Towels",
+    "Private Toilet",
+    "Toilet paper",
+    "Bed linen",
+    "Socket near bed",
+];
+
+import {
+    roomImages,
+    room1Images,
+    room2Images,
+    breakfastImages,
+} from "../../data/images";
+---
+
+<Layout title="Accommodation" lang="en">
+    <!-- Header Section -->
+    <div class="bg-secondary/30 py-24">
+        <div class="max-w-4xl mx-auto px-4 text-center animate-fade-in-up">
+            <h1
+                class="text-5xl md:text-6xl font-serif font-bold text-primary mb-6"
+            >
+                Our Accommodation
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Enjoy a stay where comfort, peace, and personal service come
+                together.
+            </p>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="max-w-7xl mx-auto px-4 py-20 space-y-32">
+        <!-- Room 1: The Farmhouse -->
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <div class="space-y-4">
+                <div
+                    class="relative group overflow-hidden rounded-2xl shadow-xl aspect-[4/3]"
+                >
+                    <img
+                        src={room1Images[0]}
+                        alt="The Farmhouse Room Main Photo"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div
+                        class="relative group overflow-hidden rounded-xl shadow-lg aspect-[4/3]"
+                    >
+                        <img
+                            src={room1Images[1]}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Detail 1"
+                        />
+                    </div>
+                    <div
+                        class="relative group overflow-hidden rounded-xl shadow-lg aspect-[4/3]"
+                    >
+                        <img
+                            src={room1Images[2]}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Detail 2"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span
+                    class="text-accent font-bold tracking-widest uppercase text-sm mb-2 block"
+                    >Room 1</span
+                >
+                <h2 class="text-4xl font-serif font-bold text-primary mb-6">
+                    The Farmhouse Room
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    An atmospheric room with authentic details and garden view.
+                    The room features a comfortable double bed (boxspring) and a
+                    private seating area. The bathroom is equipped with a
+                    spacious shower, sink, and toilet.
+                    <br /><br />
+                    <span class="font-bold text-primary"
+                        >Room size: 15 m² • For max. 2 guests</span
+                    >
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                    {
+                        room1Features.map((feature) => (
+                            <div class="flex items-center gap-3 text-gray-700">
+                                <svg
+                                    class="w-5 h-5 text-accent flex-shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M5 13l4 4L19 7"
+                                    />
+                                </svg>
+                                <span>{feature}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <a
+                    href="/en/reserveren"
+                    class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-full hover:bg-primary/90 transition-all font-semibold shadow-lg hover:shadow-xl w-full sm:w-auto text-lg"
+                >
+                    Reserve Room 1
+                </a>
+            </div>
+        </div>
+
+        <!-- Room 2: The Garden -->
+        <div class="grid lg:grid-cols-2 gap-16 items-start lg:grid-flow-dense">
+            <div class="lg:col-start-2 space-y-4">
+                <div
+                    class="relative group overflow-hidden rounded-2xl shadow-xl aspect-[4/3]"
+                >
+                    <img
+                        src={room2Images[0]}
+                        alt="The Garden Room Main Photo"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div
+                        class="relative group overflow-hidden rounded-xl shadow-lg aspect-[4/3]"
+                    >
+                        <img
+                            src={room2Images[1]}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Detail 1"
+                        />
+                    </div>
+                    <div
+                        class="relative group overflow-hidden rounded-xl shadow-lg aspect-[4/3]"
+                    >
+                        <img
+                            src={room2Images[2]}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Detail 2"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-start-1">
+                <span
+                    class="text-accent font-bold tracking-widest uppercase text-sm mb-2 block"
+                    >Room 2</span
+                >
+                <h2 class="text-4xl font-serif font-bold text-primary mb-6">
+                    The Dune Room
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Our second room is bright and spacious, inspired by the
+                    nearby dunes. Enjoy peace and privacy. This room is also
+                    equipped with all conveniences such as free Wi-Fi,
+                    television, and coffee and tea facilities.
+                    <br /><br />
+                    <span class="font-bold text-primary"
+                        >Room size: 25 m² • For max. 2 guests</span
+                    >
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                    {
+                        room2Features.map((feature) => (
+                            <div class="flex items-center gap-3 text-gray-700">
+                                <svg
+                                    class="w-5 h-5 text-accent flex-shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M5 13l4 4L19 7"
+                                    />
+                                </svg>
+                                <span>{feature}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <a
+                    href="/en/reserveren"
+                    class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-full hover:bg-primary/90 transition-all font-semibold shadow-lg hover:shadow-xl w-full sm:w-auto text-lg"
+                >
+                    Reserve Room 2
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Image Section (Breakfast) -->
+    <div class="bg-stone-50 py-20">
+        <div
+            id="ontbijt"
+            class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center lg:flex-row-reverse"
+        >
+            <div class="order-2 lg:order-1">
+                <span
+                    class="text-accent font-bold tracking-widest uppercase text-sm mb-2 block"
+                    >The Start of the Day</span
+                >
+                <h2 class="text-4xl font-serif font-bold text-primary mb-6">
+                    A Good Breakfast
+                </h2>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Join us every morning for a delicious fresh breakfast. We
+                    serve fresh rolls, local fruit, eggs, and various toppings.
+                    Weather permitting, you can also have breakfast outside on
+                    the terrace.
+                </p>
+            </div>
+            <div class="relative group order-1 lg:order-2">
+                <div
+                    class="absolute -inset-4 bg-primary/10 rounded-2xl transform -rotate-2 transition-transform group-hover:rotate-0"
+                >
+                </div>
+                <img
+                    src={breakfastImages[0]}
+                    alt="Breakfast"
+                    class="relative rounded-xl shadow-2xl w-full object-cover h-[400px]"
+                />
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+    }
+</style>

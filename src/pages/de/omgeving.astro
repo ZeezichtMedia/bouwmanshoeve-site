@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { surroundingImages } from "../../data/images";
+---
+
+<Layout title="Umgebung" lang="de">
+    <div class="bg-secondary/30 py-24 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl font-serif font-bold text-primary mb-6">
+                Umgebung
+            </h1>
+            <p class="text-xl text-gray-600">
+                Entdecken Sie die Perlen von Zeeland
+            </p>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <div
+                class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all"
+            >
+                <img
+                    src={surroundingImages[1]}
+                    class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    alt="Strand & Dünen"
+                />
+                <div class="p-8">
+                    <h3 class="font-serif font-bold text-xl mb-3 text-primary">
+                        Strand & Dünen
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Kilometerlange saubere Strände und die wunderschönen
+                        'Zeepeduinen' liegen in Fahrradentfernung.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div
+                class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all"
+            >
+                <img
+                    src={surroundingImages[2]}
+                    class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    alt="Slot Haamstede"
+                />
+                <div class="p-8">
+                    <h3 class="font-serif font-bold text-xl mb-3 text-primary">
+                        Slot Haamstede
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Besuchen Sie das historische Schloss Haamstede und
+                        spazieren Sie durch den schönen Schlossgarten.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div
+                class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all"
+            >
+                <img
+                    src={surroundingImages[3]}
+                    class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    alt="Deltapark Neeltje Jans"
+                />
+                <div class="p-8">
+                    <h3 class="font-serif font-bold text-xl mb-3 text-primary">
+                        Deltapark Neeltje Jans
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Erfahren Sie alles über die Deltawerke und genießen Sie
+                        Shows mit Seelöwen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

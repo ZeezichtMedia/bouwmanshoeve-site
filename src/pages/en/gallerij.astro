@@ -1,0 +1,270 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { galleryImages } from "../../data/images";
+
+const title = "Gallery";
+const lang = "en";
+---
+
+<Layout title={title} lang={lang}>
+    <!-- Hero Section -->
+    <div class="relative h-[40vh] min-h-[400px]">
+        <img
+            src={galleryImages[0]}
+            alt="Bouwmanshoeve Gallery"
+            class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h1
+                    class="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg text-white"
+                >
+                    {title}
+                </h1>
+                <p
+                    class="text-xl md:text-2xl font-light max-w-2xl mx-auto drop-shadow-md"
+                >
+                    An impression of our farmhouse and the beautiful
+                    surroundings
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <section class="py-20 px-4 bg-stone-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {
+                    galleryImages.map((image, index) => (
+                        <div class="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-md cursor-pointer">
+                            <img
+                                src={image}
+                                alt={`Gallery image ${index + 1}`}
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 gallery-image"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+                        </div>
+                    ))
+                }
+            </div>
+
+            <!-- Booking CTA -->
+            <div class="mt-20 text-center">
+                <h2 class="text-3xl font-serif font-bold text-primary mb-6">
+                    Convinced?
+                </h2>
+                <a
+                    href="/en/reserveren"
+                    class="inline-block bg-accent hover:bg-accent/90 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                >
+                    Reserve Directly
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<!-- Lightbox Component -->
+<div
+    id="lightbox"
+    class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-sm transition-opacity duration-300 opacity-0"
+    aria-modal="true"
+    role="dialog"
+>
+    <!-- Close Button -->
+    <button
+        id="lightbox-close"
+        class="absolute top-4 right-4 text-white hover:text-accent z-50 p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-accent rounded-full bg-black/20 hover:bg-black/40"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+        <span class="sr-only">Close</span>
+    </button>
+
+    <!-- Navigation Buttons -->
+    <button
+        id="lightbox-prev"
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-accent z-50 p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-accent rounded-full bg-black/20 hover:bg-black/40 md:p-4"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 md:h-10 md:w-10"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Previous</span>
+    </button>
+
+    <button
+        id="lightbox-next"
+        class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-accent z-50 p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-accent rounded-full bg-black/20 hover:bg-black/40 md:p-4"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 md:h-10 md:w-10"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="sr-only">Next</span>
+    </button>
+
+    <!-- Image Container -->
+    <div class="h-full w-full flex items-center justify-center p-4 md:p-10">
+        <img
+            id="lightbox-img"
+            src=""
+            alt="Gallery enlarged"
+            class="max-h-full max-w-full object-contain shadow-2xl rounded-sm transform transition-transform duration-300 scale-95 opacity-0"
+        />
+        <p
+            id="lightbox-caption"
+            class="absolute bottom-6 left-0 right-0 text-center text-white/80 font-serif text-lg tracking-wide transform translate-y-full transition-transform duration-300"
+        >
+        </p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        initLightbox();
+    });
+
+    // Also run on initial load if view transitions aren't used or haven't fired yet
+    if (
+        document.readyState === "complete" ||
+        document.readyState === "interactive"
+    ) {
+        initLightbox();
+    } else {
+        document.addEventListener("DOMContentLoaded", initLightbox);
+    }
+
+    function initLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById(
+            "lightbox-img",
+        ) as HTMLImageElement;
+        const images = document.querySelectorAll(".gallery-image");
+
+        if (!lightbox || !lightboxImg || images.length === 0) return;
+
+        let currentIndex = 0;
+        const totalImages = images.length;
+        // Cast to HTMLImageElement to access src
+        const imageUrls = Array.from(images).map(
+            (img) => (img as HTMLImageElement).src,
+        );
+
+        // Open Lightbox
+        images.forEach((img, index) => {
+            // Find the closest wrapper that is clickable
+            const wrapper = img.closest(".cursor-pointer");
+            if (wrapper) {
+                // @ts-ignore
+                wrapper.addEventListener("click", () => {
+                    openLightbox(index);
+                });
+            }
+        });
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateImage();
+
+            lightbox.classList.remove("hidden");
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                lightbox.classList.remove("opacity-0");
+                lightboxImg.classList.remove("scale-95", "opacity-0");
+            }, 10);
+
+            document.body.style.overflow = "hidden"; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add("opacity-0");
+            lightboxImg.classList.add("scale-95", "opacity-0");
+
+            setTimeout(() => {
+                lightbox.classList.add("hidden");
+                document.body.style.overflow = "";
+            }, 300);
+        }
+
+        function updateImage() {
+            lightboxImg.src = imageUrls[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateImage();
+        }
+
+        // Event Listeners
+        document
+            .getElementById("lightbox-close")
+            ?.addEventListener("click", closeLightbox);
+        document
+            .getElementById("lightbox-next")
+            ?.addEventListener("click", (e) => {
+                e.stopPropagation();
+                nextImage();
+            });
+        document
+            .getElementById("lightbox-prev")
+            ?.addEventListener("click", (e) => {
+                e.stopPropagation();
+                prevImage();
+            });
+
+        // Close on background click
+        lightbox.addEventListener("click", (e) => {
+            // @ts-ignore
+            if (e.target === lightbox || e.target.closest(".image-container")) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard Navigation
+        document.addEventListener("keydown", (e) => {
+            if (lightbox.classList.contains("hidden")) return;
+
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowRight") nextImage();
+            if (e.key === "ArrowLeft") prevImage();
+        });
+    }
+</script>

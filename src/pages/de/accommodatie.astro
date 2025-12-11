@@ -1,0 +1,283 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const room1Features = [
+    "Privateingang",
+    "Parkettboden",
+    "Rauchmelder",
+    "Über Treppe erreichbar",
+    "Abfalleimer",
+    "Zugangsschlüssel",
+    "Eigenes Badezimmer",
+    "Handtücher",
+    "Eigene Toilette",
+    "Toilettenpapier",
+    "Bettwäsche",
+    "Steckdose am Bett",
+];
+
+const room2Features = [
+    "Privateingang",
+    "Parkettboden",
+    "Rauchmelder",
+    "Über Treppe erreichbar",
+    "Abfalleimer",
+    "Zugangsschlüssel",
+    "Eigenes Badezimmer",
+    "Handtücher",
+    "Eigene Toilette",
+    "Toilettenpapier",
+    "Bettwäsche",
+    "Steckdose am Bett",
+];
+
+import {
+    roomImages,
+    room1Images,
+    room2Images,
+    breakfastImages,
+} from "../../data/images";
+---
+
+<Layout title="Unterkunft" lang="de">
+    <!-- Header Section -->
+    <div class="bg-secondary/30 py-24">
+        <div class="max-w-4xl mx-auto px-4 text-center animate-fade-in-up">
+            <h1
+                class="text-5xl md:text-6xl font-serif font-bold text-primary mb-6"
+            >
+                Unsere Unterkunft
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Genießen Sie einen Aufenthalt, bei dem Komfort, Ruhe und
+                persönlicher Service zusammenkommen.
+            </p>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="max-w-7xl mx-auto px-4 py-20 space-y-32">
+        <!-- Room 1: De Hoeve -->
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <div class="space-y-4">
+                <div
+                    class="relative group overflow-hidden rounded-2xl shadow-xl aspect-[4/3]"
+                >
+                    <img
+                        src={room1Images[0]}
+                        alt="Das Bauernhaus Zimmer Hauptfoto"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div
+                        class="relative group overflow-hidden rounded-xl shadow-lg aspect-[4/3]"
+                    >
+                        <img
+                            src={room1Images[1]}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Detail 1"
+                        />
+                    </div>
+                    <div
+                        class="relative group overflow-hidden rounded-xl shadow-lg aspect-[4/3]"
+                    >
+                        <img
+                            src={room1Images[2]}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Detail 2"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span
+                    class="text-accent font-bold tracking-widest uppercase text-sm mb-2 block"
+                    >Zimmer 1</span
+                >
+                <h2 class="text-4xl font-serif font-bold text-primary mb-6">
+                    Das Bauernhaus Zimmer
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Ein stimmungsvolles Zimmer mit authentischen Details und
+                    Blick auf den Garten. Das Zimmer verfügt über ein bequemes
+                    Doppelbett (Boxspring) und eine eigene Sitzecke. Das
+                    Badezimmer ist mit einer geräumigen Dusche, Waschbecken und
+                    Toilette ausgestattet.
+                    <br /><br />
+                    <span class="font-bold text-primary"
+                        >Zimmergröße: 15 m² • Für max. 2 Gäste</span
+                    >
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                    {
+                        room1Features.map((feature) => (
+                            <div class="flex items-center gap-3 text-gray-700">
+                                <svg
+                                    class="w-5 h-5 text-accent flex-shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M5 13l4 4L19 7"
+                                    />
+                                </svg>
+                                <span>{feature}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <a
+                    href="/de/reserveren"
+                    class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-full hover:bg-primary/90 transition-all font-semibold shadow-lg hover:shadow-xl w-full sm:w-auto text-lg"
+                >
+                    Zimmer 1 Reservieren
+                </a>
+            </div>
+        </div>
+
+        <!-- Room 2: De Tuin -->
+        <div class="grid lg:grid-cols-2 gap-16 items-start lg:grid-flow-dense">
+            <div class="lg:col-start-2 space-y-4">
+                <div
+                    class="relative group overflow-hidden rounded-2xl shadow-xl aspect-[4/3]"
+                >
+                    <img
+                        src={room2Images[0]}
+                        alt="Das Dünen Zimmer Hauptfoto"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div
+                        class="relative group overflow-hidden rounded-xl shadow-lg aspect-[4/3]"
+                    >
+                        <img
+                            src={room2Images[1]}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Detail 1"
+                        />
+                    </div>
+                    <div
+                        class="relative group overflow-hidden rounded-xl shadow-lg aspect-[4/3]"
+                    >
+                        <img
+                            src={room2Images[2]}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Detail 2"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-start-1">
+                <span
+                    class="text-accent font-bold tracking-widest uppercase text-sm mb-2 block"
+                    >Zimmer 2</span
+                >
+                <h2 class="text-4xl font-serif font-bold text-primary mb-6">
+                    Das Dünen Zimmer
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Unser zweites Zimmer ist hell und geräumig, inspiriert von
+                    den nahegelegenen Dünen. Genießen Sie Ruhe und Privatsphäre.
+                    Auch dieses Zimmer ist mit allen Annehmlichkeiten wie
+                    kostenlosem WLAN, Fernseher sowie Kaffee- und Teezubehör
+                    ausgestattet.
+                    <br /><br />
+                    <span class="font-bold text-primary"
+                        >Zimmergröße: 25 m² • Für max. 2 Gäste</span
+                    >
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                    {
+                        room2Features.map((feature) => (
+                            <div class="flex items-center gap-3 text-gray-700">
+                                <svg
+                                    class="w-5 h-5 text-accent flex-shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M5 13l4 4L19 7"
+                                    />
+                                </svg>
+                                <span>{feature}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <a
+                    href="/de/reserveren"
+                    class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-full hover:bg-primary/90 transition-all font-semibold shadow-lg hover:shadow-xl w-full sm:w-auto text-lg"
+                >
+                    Zimmer 2 Reservieren
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Image Section (Breakfast) -->
+    <div class="bg-stone-50 py-20">
+        <div
+            id="ontbijt"
+            class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center lg:flex-row-reverse"
+        >
+            <div class="order-2 lg:order-1">
+                <span
+                    class="text-accent font-bold tracking-widest uppercase text-sm mb-2 block"
+                    >Der Start in den Tag</span
+                >
+                <h2 class="text-4xl font-serif font-bold text-primary mb-6">
+                    Ein Gutes Frühstück
+                </h2>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Nehmen Sie jeden Morgen Platz für ein köstliches frisches
+                    Frühstück. Wir servieren frische Brötchen, regionales Obst,
+                    Eier und verschiedene Beläge. Bei schönem Wetter können Sie
+                    auch draußen auf der Terrasse frühstücken.
+                </p>
+            </div>
+            <div class="relative group order-1 lg:order-2">
+                <div
+                    class="absolute -inset-4 bg-primary/10 rounded-2xl transform -rotate-2 transition-transform group-hover:rotate-0"
+                >
+                </div>
+                <img
+                    src={breakfastImages[0]}
+                    alt="Frühstück"
+                    class="relative rounded-xl shadow-2xl w-full object-cover h-[400px]"
+                />
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+    }
+</style>

@@ -1,0 +1,119 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/home/Hero.astro";
+import {
+  heroImage,
+  roomImages,
+  breakfastImages,
+  surroundingImages,
+} from "../../data/images";
+---
+
+<Layout title="Home" lang="en">
+  <Hero
+    title="Welcome to Bouwmanshoeve"
+    subtitle="Discover peace, comfort, and the beauty of Burgh-Haamstede."
+    cta="Check Availability"
+    image={heroImage}
+  />
+
+  <!-- Intro Section -->
+  <section class="py-24 px-4 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <span
+        class="text-accent font-bold tracking-widest uppercase text-sm mb-4 block"
+        >About Us</span
+      >
+      <h2
+        class="text-4xl md:text-5xl font-serif font-bold text-primary mb-8 leading-tight"
+      >
+        A place to come home to
+      </h2>
+      <p class="text-xl text-gray-600 leading-relaxed mb-12">
+        Located at the edge of the dunes and a stone's throw from the beach, B&B
+        Bouwmanshoeve offers the perfect escape from the daily hustle. Enjoy our
+        hospitality, the comfortable rooms, and the extensive breakfast in our
+        atmospheric farmhouse.
+      </p>
+      <div class="w-24 h-1 bg-accent mx-auto rounded-full"></div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-20 px-4 bg-stone-50">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <a
+        href="/en/accommodatie"
+        class="block group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/5] cursor-pointer"
+      >
+        <img
+          src={roomImages[0]}
+          alt="Comfortable Rooms"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8"
+        >
+          <h3 class="text-2xl font-serif font-bold text-white mb-2">
+            Stylish Rooms
+          </h3>
+          <p
+            class="text-gray-200 transform translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+          >
+            Equipped with all modern conveniences for a wonderful night's sleep.
+          </p>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a
+        href="/en/accommodatie#ontbijt"
+        class="block group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/5] cursor-pointer md:-mt-12"
+      >
+        <img
+          src={breakfastImages[0]}
+          alt="Delicious Breakfast"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8"
+        >
+          <h3 class="text-2xl font-serif font-bold text-white mb-2">
+            Fresh Breakfast
+          </h3>
+          <p
+            class="text-gray-200 transform translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+          >
+            An extensive continental breakfast with local products every
+            morning.
+          </p>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a
+        href="/en/omgeving"
+        class="block group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/5] cursor-pointer"
+      >
+        <img
+          src={surroundingImages[0]}
+          alt="Beautiful Surroundings"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8"
+        >
+          <h3 class="text-2xl font-serif font-bold text-white mb-2">
+            Nature & Surroundings
+          </h3>
+          <p
+            class="text-gray-200 transform translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+          >
+            Walk directly into nature or cycle to the historic Slot Haamstede.
+          </p>
+        </div>
+      </a>
+    </div>
+  </section>
+</Layout>

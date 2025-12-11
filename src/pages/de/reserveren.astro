@@ -1,0 +1,196 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { galleryImages } from "../../data/images";
+
+const title = "Reservieren";
+const lang = "de";
+---
+
+<Layout title={title} lang={lang}>
+    <!-- Hero Section -->
+    <div class="relative h-[40vh] min-h-[400px]">
+        <img
+            src={galleryImages[1]}
+            alt="Reservieren bei Bouwmanshoeve"
+            class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h1
+                    class="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg text-white"
+                >
+                    {title}
+                </h1>
+                <p
+                    class="text-xl md:text-2xl font-light max-w-2xl mx-auto drop-shadow-md"
+                >
+                    Buchen Sie Ihren Aufenthalt direkt an der Quelle
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservation Form -->
+    <section class="py-20 px-4 bg-stone-50">
+        <div
+            class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl"
+        >
+            <h2
+                class="text-3xl font-serif font-bold text-primary mb-8 text-center"
+            >
+                Reservierungsanfrage
+            </h2>
+            <p class="text-gray-600 mb-10 text-center">
+                Füllen Sie das untenstehende Formular aus und wir werden uns so
+                schnell wie möglich bei Ihnen melden, um Ihre Reservierung zu
+                bestätigen.
+            </p>
+
+            <form
+                name="reservierung"
+                method="POST"
+                data-netlify="true"
+                action="/de/contact?success=true"
+                class="space-y-6"
+            >
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label
+                            for="naam"
+                            class="block text-sm font-semibold text-gray-700"
+                            >Name</label
+                        >
+                        <input
+                            type="text"
+                            id="naam"
+                            name="naam"
+                            required
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                            placeholder="Ihr vollständiger Name"
+                        />
+                    </div>
+                    <div class="space-y-2">
+                        <label
+                            for="email"
+                            class="block text-sm font-semibold text-gray-700"
+                            >E-Mail</label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                            placeholder="ihre@email.de"
+                        />
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label
+                            for="telefoon"
+                            class="block text-sm font-semibold text-gray-700"
+                            >Telefonnummer</label
+                        >
+                        <input
+                            type="tel"
+                            id="telefoon"
+                            name="telefoon"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                            placeholder="+49 171 1234567"
+                        />
+                    </div>
+                    <div class="space-y-2">
+                        <label
+                            for="personen"
+                            class="block text-sm font-semibold text-gray-700"
+                            >Anzahl Personen</label
+                        >
+                        <select
+                            id="personen"
+                            name="personen"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                        >
+                            <option value="1">1 Person</option>
+                            <option value="2" selected>2 Personen</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label
+                            for="aankomst"
+                            class="block text-sm font-semibold text-gray-700"
+                            >Anreisedatum</label
+                        >
+                        <input
+                            type="date"
+                            id="aankomst"
+                            name="aankomst"
+                            required
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                        />
+                    </div>
+                    <div class="space-y-2">
+                        <label
+                            for="vertrek"
+                            class="block text-sm font-semibold text-gray-700"
+                            >Abreisedatum</label
+                        >
+                        <input
+                            type="date"
+                            id="vertrek"
+                            name="vertrek"
+                            required
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                        />
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label
+                        for="kamer"
+                        class="block text-sm font-semibold text-gray-700"
+                        >Zimmerwunsch</label
+                    >
+                    <select
+                        id="kamer"
+                        name="kamer"
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                    >
+                        <option value="geen-voorkeur">Keine Präferenz</option>
+                        <option value="kamer-1"
+                            >Zimmer 1 (Das Bauernhaus)</option
+                        >
+                        <option value="kamer-2">Zimmer 2 (Die Düne)</option>
+                    </select>
+                </div>
+
+                <div class="space-y-2">
+                    <label
+                        for="opmerkingen"
+                        class="block text-sm font-semibold text-gray-700"
+                        >Anmerkungen oder Fragen</label
+                    >
+                    <textarea
+                        id="opmerkingen"
+                        name="opmerkingen"
+                        rows="4"
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                        placeholder="Haben Sie spezielle Wünsche oder Fragen?"
+                    ></textarea>
+                </div>
+
+                <button
+                    type="submit"
+                    class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-4 rounded-lg transition-colors shadow-lg hover:shadow-xl text-lg"
+                >
+                    Anfrage Senden
+                </button>
+            </form>
+        </div>
+    </section>
+</Layout>

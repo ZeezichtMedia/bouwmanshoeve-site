@@ -1,0 +1,45 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-primary text-white py-16 mt-auto">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12"
+  >
+    <div>
+      <h3 class="font-serif text-2xl font-bold mb-6 text-accent">
+        B&B Bouwmanshoeve
+      </h3>
+      <p class="text-gray-300 leading-relaxed">
+        Ervaar de rust en ruimte van Zeeland.<br />
+        Gelegen nabij de prachtige duinen en stranden van Burgh-Haamstede.
+      </p>
+    </div>
+    <div>
+      <h3 class="font-serif text-lg font-bold mb-6 text-white">Contact</h3>
+      <p class="text-gray-300 leading-relaxed">
+        Bouwmansweg 10<br />
+        4328 SC Burgh-Haamstede<br />
+        Nederland
+      </p>
+    </div>
+    <div>
+      <h3 class="font-serif text-lg font-bold mb-6 text-white">Links</h3>
+      <ul class="text-gray-300 space-y-3">
+        <li>
+          <a
+            href="/nl/reserveren"
+            class="hover:text-accent transition-colors flex items-center gap-2"
+          >
+            <span>Direct Reserveren</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="border-t border-white/10 mt-12 pt-8 text-center text-gray-400 text-sm"
+  >
+    &copy; {currentYear} Bouwmanshoeve.
+  </div>
+</footer>

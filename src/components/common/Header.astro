@@ -1,0 +1,94 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+
+const navItems = [
+  {
+    href: getRelativeLocaleUrl(lang, ""),
+    label: lang === "nl" ? "Home" : "Home",
+  },
+  {
+    href: getRelativeLocaleUrl(lang, "accommodatie"),
+    label:
+      lang === "nl"
+        ? "Accommodatie"
+        : lang === "de"
+          ? "Unterkunft"
+          : "Accommodation",
+  },
+  {
+    href: getRelativeLocaleUrl(lang, "omgeving"),
+    label:
+      lang === "nl" ? "Omgeving" : lang === "de" ? "Umgebung" : "Surroundings",
+  },
+  {
+    href: getRelativeLocaleUrl(lang, "gallerij"),
+    label: lang === "nl" ? "Gallerij" : lang === "de" ? "Galerie" : "Gallery",
+  },
+  { href: getRelativeLocaleUrl(lang, "contact"), label: "Contact" },
+];
+---
+
+<header
+  class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-secondary"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <div class="flex-shrink-0">
+        <a
+          href={getRelativeLocaleUrl(lang, "")}
+          class="font-serif text-2xl font-bold text-primary tracking-tight"
+        >
+          Bouwmanshoeve
+        </a>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-gray-700 hover:text-accent font-medium transition-colors"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <div class="flex items-center space-x-4">
+        <div
+          class="flex space-x-2 text-sm font-medium border-r pr-4 border-gray-300"
+        >
+          <a
+            href="/nl"
+            class={lang === "nl"
+              ? "text-primary"
+              : "text-gray-400 hover:text-gray-600"}>NL</a
+          >
+          <a
+            href="/en"
+            class={lang === "en"
+              ? "text-primary"
+              : "text-gray-400 hover:text-gray-600"}>EN</a
+          >
+          <a
+            href="/de"
+            class={lang === "de"
+              ? "text-primary"
+              : "text-gray-400 hover:text-gray-600"}>DE</a
+          >
+        </div>
+        <a
+          href={getRelativeLocaleUrl(lang, "reserveren")}
+          class="bg-primary text-white px-5 py-2.5 rounded-full hover:bg-primary/90 transition-all font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm"
+        >
+          {lang === "nl" ? "Boek Nu" : lang === "de" ? "Buchen" : "Book Now"}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
