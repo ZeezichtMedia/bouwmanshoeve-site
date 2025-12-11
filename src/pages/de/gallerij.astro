@@ -18,7 +18,7 @@ const lang = "de";
         <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center text-white px-4">
                 <h1
-                    class="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg text-white"
+                    class="text-3xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg text-white"
                 >
                     {title}
                 </h1>
@@ -194,32 +194,32 @@ const lang = "de";
             }
         });
 
-        function openLightbox(index) {
+        function openLightbox(index: number) {
             currentIndex = index;
             updateImage();
 
-            lightbox.classList.remove("hidden");
+            lightbox!.classList.remove("hidden");
             // Small delay to allow display:block to apply before opacity transition
             setTimeout(() => {
-                lightbox.classList.remove("opacity-0");
-                lightboxImg.classList.remove("scale-95", "opacity-0");
+                lightbox!.classList.remove("opacity-0");
+                lightboxImg!.classList.remove("scale-95", "opacity-0");
             }, 10);
 
             document.body.style.overflow = "hidden"; // Prevent scrolling
         }
 
         function closeLightbox() {
-            lightbox.classList.add("opacity-0");
-            lightboxImg.classList.add("scale-95", "opacity-0");
+            lightbox!.classList.add("opacity-0");
+            lightboxImg!.classList.add("scale-95", "opacity-0");
 
             setTimeout(() => {
-                lightbox.classList.add("hidden");
+                lightbox!.classList.add("hidden");
                 document.body.style.overflow = "";
             }, 300);
         }
 
         function updateImage() {
-            lightboxImg.src = imageUrls[currentIndex];
+            lightboxImg!.src = imageUrls[currentIndex];
         }
 
         function nextImage() {
@@ -250,7 +250,7 @@ const lang = "de";
             });
 
         // Close on background click
-        lightbox.addEventListener("click", (e) => {
+        lightbox!.addEventListener("click", (e) => {
             // @ts-ignore
             if (e.target === lightbox || e.target.closest(".image-container")) {
                 closeLightbox();
@@ -259,7 +259,7 @@ const lang = "de";
 
         // Keyboard Navigation
         document.addEventListener("keydown", (e) => {
-            if (lightbox.classList.contains("hidden")) return;
+            if (lightbox!.classList.contains("hidden")) return;
 
             if (e.key === "Escape") closeLightbox();
             if (e.key === "ArrowRight") nextImage();
